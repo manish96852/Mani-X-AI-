@@ -8,8 +8,8 @@ import {
   AlertCircle,
 } from "lucide-react";
 import { Button } from "../components/ui/Button";
-import { Input } from "../components/ui/Input";
-import { Card } from "../components/ui/Card";
+import { Input } from "../components/ui/input2";
+import { Card } from "../components/ui/card2";
 import { useVaultDeposit } from "../hooks/useVaultDeposit";
 import { useWalletInterface } from "../services/wallets/useWalletInterface";
 import { toast } from "../hooks/useToastify";

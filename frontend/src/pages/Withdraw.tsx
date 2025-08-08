@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import {
   ArrowLeft,
@@ -8,13 +8,12 @@ import {
   AlertCircle,
 } from "lucide-react";
 import { Button } from "../components/ui/Button";
-import { Input } from "../components/ui/Input";
-import { Card } from "../components/ui/Card";
+import { Input } from "../components/ui/input2";
+import { Card } from "../components/ui/card2";
 import { useVaultWithdraw } from "../hooks/useVaultWithdraw";
-import { useWalletInterface } from "../services/wallets/useWalletInterface";
 import { ethers } from "ethers";
 import { toast } from "../hooks/useToastify";
-import { VaultData, TOKEN_ICONS } from "../types/api";
+import { VaultData } from "../types/api";
 import { useVaults } from "../hooks/useVaults";
 
 interface WithdrawPageProps {
@@ -31,7 +30,7 @@ const WithdrawPage = ({ vault }: WithdrawPageProps) => {
   );
 
   // Fetch vaults data to get the actual vault information
-  const { data: vaults, isLoading: vaultsLoading } = useVaults();
+  const { data: vaults } = useVaults();
 
   // Find the current vault from the data using the address from URL params
   const currentVault =
@@ -52,8 +51,6 @@ const WithdrawPage = ({ vault }: WithdrawPageProps) => {
     transactionStage,
     isConnected,
   } = useVaultWithdraw(currentVault || undefined);
-
-  const { accountId } = useWalletInterface();
 
   // If no vault data is available, show loading or error state
   if (!currentVault) {
@@ -78,27 +75,6 @@ const WithdrawPage = ({ vault }: WithdrawPageProps) => {
   }
 
   const displayVault = currentVault;
-
-  // Helper function to format currency from TVL string
-  const formatCurrencyValue = (tvlString: string): string => {
-    // Extract numeric value from strings like "$2.1M"
-    const match = tvlString.match(/\$?([\d.]+)([KMB]?)/);
-    if (match) {
-      const [, value, unit] = match;
-      const numValue = parseFloat(value);
-      switch (unit) {
-        case "K":
-          return `$${(numValue * 1000).toLocaleString()}`;
-        case "M":
-          return `$${(numValue * 1000000).toLocaleString()}`;
-        case "B":
-          return `$${(numValue * 1000000000).toLocaleString()}`;
-        default:
-          return `$${numValue.toLocaleString()}`;
-      }
-    }
-    return tvlString;
-  };
 
   const handleBack = () => {
     navigate("/app");
