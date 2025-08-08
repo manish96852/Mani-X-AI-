@@ -1,0 +1,42 @@
+[package]
+name = "mani-x-ai"
+version = "0.1.0"
+edition = "2024"
+
+[[bin]]
+name = "mani-x-ai"
+path = "src/main.rs"
+
+[[bin]]
+name = "simple_main"
+path = "src/simple_main.rs"
+
+[dependencies]
+actix-cors = "0.7.1"
+actix-web = "4.11.0"
+alloy = { version = "1.0.23", features = ["full"] }
+alloy-sol-types = "1.3.0"
+chrono = "0.4.41"
+color-eyre = "0.6.5"
+csv = "1.3.1"
+dashmap = "6.1.0"
+dotenvy = "0.15.7"
+env_logger = "0.11.5"
+lettre = "0.11.18"
+once_cell = "1.21.3"
+reqwest = "0.12.22"
+rig-core = { version = "0.16.0", features = ["derive", "mcp"] }
+mcp-core = { version = "0.1.50", features = ["sse"] }
+mcp-core-macros = "0.1.30"
+schemars = "0.8"
+serde = { version = "1.0.219", features = ["derive"] }
+serde_json = "1.0.141"
+thiserror = "2.0.12"
+tokio = { version = "1.46.1", features = ["full"] }
+toml = "0.9.3"
+tracing = "0.1.41"
+tracing-appender = "0.2.3"
+tracing-subscriber = { version = "0.3.19", features = ["env-filter"] }
+utoipa = { version = "5.4.0", features = ["actix_extras"] }
+utoipa-actix-web = "0.1.2"
+utoipa-swagger-ui = { version = "9.0.2", features = ["actix-web", "reqwest"] }
