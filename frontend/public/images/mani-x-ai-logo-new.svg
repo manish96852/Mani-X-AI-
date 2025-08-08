@@ -1,0 +1,65 @@
+<svg width="200" height="60" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00D4FF;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#0099FF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6C5CE7;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E0E0E0;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Logo Icon - Hexagonal AI Symbol -->
+  <g transform="translate(10, 8)">
+    <!-- Outer hexagon -->
+    <polygon points="22,6 34,13 34,27 22,34 10,27 10,13" 
+             fill="url(#logoGradient)" 
+             stroke="#FFFFFF" 
+             stroke-width="1.5"/>
+    
+    <!-- Inner neural network pattern -->
+    <circle cx="16" cy="16" r="2" fill="#FFFFFF" opacity="0.9"/>
+    <circle cx="28" cy="16" r="2" fill="#FFFFFF" opacity="0.9"/>
+    <circle cx="22" cy="10" r="2" fill="#FFFFFF" opacity="0.9"/>
+    <circle cx="22" cy="22" r="2" fill="#FFFFFF" opacity="0.9"/>
+    
+    <!-- Connecting lines -->
+    <line x1="16" y1="16" x2="28" y2="16" stroke="#FFFFFF" stroke-width="1.5" opacity="0.7"/>
+    <line x1="22" y1="10" x2="22" y2="22" stroke="#FFFFFF" stroke-width="1.5" opacity="0.7"/>
+    <line x1="16" y1="16" x2="22" y2="10" stroke="#FFFFFF" stroke-width="1.5" opacity="0.7"/>
+    <line x1="28" y1="16" x2="22" y2="22" stroke="#FFFFFF" stroke-width="1.5" opacity="0.7"/>
+    
+    <!-- Central AI core -->
+    <circle cx="22" cy="16" r="3" fill="#FFFFFF" opacity="1"/>
+    <circle cx="22" cy="16" r="1.5" fill="url(#logoGradient)"/>
+  </g>
+  
+  <!-- Brand Text -->
+  <text x="55" y="25" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="url(#textGradient)">
+    MANI
+  </text>
+  <text x="105" y="25" font-family="Arial, sans-serif" font-size="16" font-weight="normal" fill="#00D4FF">
+    X
+  </text>
+  <text x="118" y="25" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="url(#textGradient)">
+    AI
+  </text>
+  
+  <!-- Tagline -->
+  <text x="55" y="40" font-family="Arial, sans-serif" font-size="10" font-weight="normal" fill="#B0B0B0">
+    AI-Powered DeFi Vaults
+  </text>
+  
+  <!-- Subtle decorative elements -->
+  <circle cx="150" cy="15" r="1.5" fill="#00D4FF" opacity="0.6">
+    <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="160" cy="20" r="1" fill="#6C5CE7" opacity="0.4">
+    <animate attributeName="opacity" values="0.4;0.8;0.4" dur="2.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="170" cy="12" r="1.2" fill="#00D4FF" opacity="0.5">
+    <animate attributeName="opacity" values="0.5;0.9;0.5" dur="3s" repeatCount="indefinite"/>
+  </circle>
+</svg>

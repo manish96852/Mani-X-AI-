@@ -1,0 +1,21 @@
+<svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bonzoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#ff8e53;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff6b9d;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Circular background -->
+  <circle cx="24" cy="24" r="22" fill="url(#bonzoGradient)" stroke="#ffffff" stroke-width="2"/>
+  
+  <!-- Letter B -->
+  <text x="24" y="32" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#ffffff">B</text>
+  
+  <!-- Decorative elements -->
+  <circle cx="24" cy="6" r="2" fill="#ffffff" opacity="0.8"/>
+  <circle cx="6" cy="24" r="1.5" fill="#ffffff" opacity="0.6"/>
+  <circle cx="42" cy="24" r="1.5" fill="#ffffff" opacity="0.6"/>
+  <circle cx="24" cy="42" r="2" fill="#ffffff" opacity="0.8"/>
+</svg>
