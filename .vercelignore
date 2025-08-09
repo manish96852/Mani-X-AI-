@@ -1,0 +1,6 @@
+backend/
+contracts/
+mcp/
+*.toml
+*.yaml
+.gitignore

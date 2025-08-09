@@ -1,25 +1,26 @@
 {
-  "name": "mani-x-ai-frontend",
   "version": 2,
+  "name": "mani-x-ai-frontend",
   "builds": [
     {
       "src": "frontend/package.json",
       "use": "@vercel/static-build",
       "config": {
-        "distDir": "build",
-        "buildCommand": "cd frontend && npm run build"
+        "distDir": "build"
       }
     }
   ],
   "routes": [
     {
+      "src": "/static/(.*)",
+      "dest": "/static/$1"
+    },
+    {
       "src": "/(.*)",
-      "dest": "/frontend/build/$1"
+      "dest": "/index.html"
     }
   ],
+  "buildCommand": "cd frontend && npm install && npm run build",
   "outputDirectory": "frontend/build",
-  "env": {
-    "DISABLE_ESLINT_PLUGIN": "true",
-    "GENERATE_SOURCEMAP": "false"
-  }
+  "installCommand": "cd frontend && npm install"
 }
