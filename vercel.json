@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "name": "mani-x-ai-frontend",
+  "name": "mani-x-ai-fullstack",
   "builds": [
     {
       "src": "frontend/package.json",
@@ -8,9 +8,20 @@
       "config": {
         "distDir": "build"
       }
+    },
+    {
+      "src": "api/Cargo.toml",
+      "use": "vercel-rust@4.1.0",
+      "config": {
+        "runtime": "provided.al2"
+      }
     }
   ],
   "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/index"
+    },
     {
       "src": "/static/(.*)",
       "dest": "/static/$1"
@@ -19,5 +30,11 @@
       "src": "/(.*)",
       "dest": "/index.html"
     }
-  ]
+  ],
+  "env": {
+    "PRIVATE_KEY": "3030020100300706052b8104000a0422042092bcaf2059396202960dcd562b86d9c3eee437c7d6a94cc0241e155b012a5a61",
+    "NETWORK": "testnet",
+    "HEDERA_ACCOUNT_ID": "0.0.6515212",
+    "GEMINI_API_KEY": "AIzaSyBspJ6rJRUJACeT3rMUEhQgbSeRyj-HV5o"
+  }
 }
