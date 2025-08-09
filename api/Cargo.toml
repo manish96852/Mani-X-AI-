@@ -10,5 +10,5 @@ vercel_runtime = "2.0.0"
 tokio = { version = "1", features = ["full"] }
 
 [[bin]]
-name = "index"
-path = "index.rs"
+name = "api"
+path = "api/index.rs"

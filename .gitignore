@@ -2,7 +2,7 @@
 node_modules/
 */node_modules/
 
-# Environment variables (NEVER commit these!)
+# Environment variables
 .env
 .env.local
 .env.development.local
@@ -14,9 +14,6 @@ build/
 dist/
 target/
 */target/
-out/
-cache/
-artifacts/
 
 # Logs
 *.log
@@ -36,14 +33,12 @@ Thumbs.db
 # Rust specific
 Cargo.lock
 **/Cargo.lock
-**/*.rs.bk
 
 # React specific
 # npm
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-.pnpm-debug.log*
 
 # Runtime data
 pids
@@ -66,9 +61,6 @@ jspm_packages/
 
 # Optional eslint cache
 .eslintcache
-
-# TypeScript cache
-*.tsbuildinfo
 
 # Optional REPL history
 .node_repl_history
@@ -110,22 +102,3 @@ jspm_packages/
 
 # Development tools
 rustup-init.exe
-
-# Foundry / Solidity specific
-broadcast/
-typechain/
-typechain-types/
-
-# Private keys and sensitive data
-*.pem
-*.key
-private_keys/
-secrets/
-
-# Database files
-*.db
-*.sqlite
-*.sqlite3
-
-# Test results
-test-results/
