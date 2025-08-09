@@ -1,0 +1,21 @@
+{
+  "name": "mani-x-ai-frontend",
+  "version": 2,
+  "builds": [
+    {
+      "src": "frontend/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "build",
+        "buildCommand": "cd frontend && npm run build"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/frontend/build/$1"
+    }
+  ],
+  "outputDirectory": "frontend/build"
+}

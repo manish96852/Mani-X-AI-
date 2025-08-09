@@ -1,0 +1,10 @@
+version: "1"
+build:
+  commands:
+    - cd backend
+    - cargo build --release --bin simple_main
+start:
+  command: cd backend && ./target/release/simple_main
+env:
+  RUST_LOG: info
+  PORT: 8090

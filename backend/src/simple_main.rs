@@ -1,6 +1,17 @@
 use actix_cors::Cors;
 use actix_web::{web, App, HttpServer, Result, HttpResponse, middleware::Logger};
+use serde::{Deserialize, Serialize};
 use serde_json::json;
+
+#[derive(Deserialize)]
+struct ChatRequest {
+    message: String,
+}
+
+#[derive(Serialize)]
+struct ChatResponse {
+    response: String,
+}
 
 // Simple health check endpoint
 async fn health() -> Result<HttpResponse> {
@@ -65,10 +76,23 @@ async fn get_vaults() -> Result<HttpResponse> {
 }
 
 // Mock chat endpoint
-async fn chat() -> Result<HttpResponse> {
-    Ok(HttpResponse::Ok().json(json!({
-        "response": "Hello! I'm the MANI X AI assistant. How can I help you today?"
-    })))
+async fn chat(req: web::Json<ChatRequest>) -> Result<HttpResponse> {
+    let user_message = &req.message;
+    
+    // Simple AI response based on user input
+    let response = if user_message.to_lowercase().contains("hi") || user_message.to_lowercase().contains("hello") {
+        "Hello! I'm your MANI X AI assistant. I can help you with vault analysis, DeFi strategies, and liquidity management. What would you like to know?"
+    } else if user_message.to_lowercase().contains("vault") {
+        "I can see you're interested in vaults! Our MANI X AI Vault is currently managing HBAR/USDC liquidity with a TVL of $6,000. The vault is actively rebalancing positions to maximize returns. Would you like to know more about the current performance?"
+    } else if user_message.to_lowercase().contains("price") || user_message.to_lowercase().contains("hbar") {
+        "Current HBAR price is approximately $0.05. The vault is optimized for this price range with positions between -887220 and 887220 ticks. The strategy is performing well in this range!"
+    } else {
+        "I'm here to help with DeFi and liquidity management! You can ask me about vault performance, HBAR prices, rebalancing strategies, or any DeFi-related questions. How can I assist you today?"
+    };
+    
+    Ok(HttpResponse::Ok().json(ChatResponse {
+        response: response.to_string()
+    }))
 }
 
 #[actix_web::main]
@@ -91,6 +115,7 @@ async fn main() -> std::io::Result<()> {
             .route("/health", web::get().to(health))
             .route("/vaults", web::get().to(get_vaults))
             .route("/chat", web::post().to(chat))
+            .route("/api/v1/chat", web::post().to(chat))
             .route("/", web::get().to(|| async {
                 HttpResponse::Ok().json(json!({
                     "name": "MANI X AI",
