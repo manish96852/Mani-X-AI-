@@ -1,8 +1,5 @@
 backend/
 contracts/
 mcp/
-*.toml
-*.yaml
-README.md
 railway.toml
 render.yaml
