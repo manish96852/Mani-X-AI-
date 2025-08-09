@@ -3,4 +3,6 @@ contracts/
 mcp/
 *.toml
 *.yaml
-.gitignore
+README.md
+railway.toml
+render.yaml
